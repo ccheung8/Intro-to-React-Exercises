@@ -6,6 +6,7 @@ import { ToggleButton } from './components/ToggleButton';
 import { TextVisibility } from './components/TextVisibility';
 import { FormInput } from './components/formInput';
 import { ListRendering } from './components/ListRendering';
+import { ProductCard } from './components/ProductCard';
 
 function App() {
   const [name, setName] = React.useState();
@@ -100,6 +101,11 @@ function App() {
       <ListRendering
         renderItem={renderItem}
         items={items}
+      />
+
+      <ProductCard
+        name={'Phone'}
+        price={'$800'}
       />
     </>
   )
