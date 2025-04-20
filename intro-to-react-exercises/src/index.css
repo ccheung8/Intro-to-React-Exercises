@@ -43,3 +43,18 @@
   width: 40px;
   padding: 4px 0;
 }
+
+.textVisibility {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 16px;
+}
+
+.textVisibility button {
+  width: inherit;
+}
+
+.textVisibility h2 {
+  margin-bottom: 0px;
+}

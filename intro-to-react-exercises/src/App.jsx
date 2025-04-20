@@ -3,12 +3,14 @@ import { GreetingComponent } from './components/GreetingComponent';
 import { ProfileComponent } from './components/ProfileComponent';
 import { CounterApp } from './components/CounterApp';
 import { ToggleButton } from './components/ToggleButton';
+import { TextVisibility } from './components/TextVisibility';
 
 function App() {
   const [name, setName] = React.useState();
   const [user, setUser] = React.useState();
   const [count, setCount] = React.useState(0);
   const [toggle, setToggle] = React.useState("On");
+  const [isVisible, setIsVisible] = React.useState(true);
 
   function handleName(event) {
     event.preventDefault();
@@ -43,6 +45,10 @@ function App() {
     event.target.style.backgroundColor = toggle != "On" ? "#00ff00" : "#ff0000";
   }
 
+  function handleVisibility() {
+    setIsVisible(isVisible == true ? false : true);
+  }
+
   return (
     <>
       <h1>Beginner Exercises</h1>
@@ -65,6 +71,11 @@ function App() {
         <ToggleButton
           handleToggle={handleToggle}
           toggle={toggle}
+        />
+
+        <TextVisibility
+          handleVisibility={handleVisibility}
+          isVisible={isVisible}
         />
     </>
   )
