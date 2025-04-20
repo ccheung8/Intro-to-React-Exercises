@@ -3,7 +3,7 @@ export function ProductCard({ name, price }) {
     <div className="productCard">
       <h2>Product Card</h2>
       <p>{name}</p>
-      <p>Price: {price}</p>
+      <p>Price: ${price}</p>
     </div>
   );
 }

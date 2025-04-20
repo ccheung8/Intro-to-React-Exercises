@@ -105,7 +105,7 @@ function App() {
 
       <ProductCard
         name={'Phone'}
-        price={'$800'}
+        price={800}
       />
     </>
   )
