@@ -5,6 +5,7 @@ import { CounterApp } from './components/CounterApp';
 import { ToggleButton } from './components/ToggleButton';
 import { TextVisibility } from './components/TextVisibility';
 import { FormInput } from './components/formInput';
+import { ListRendering } from './components/ListRendering';
 
 function App() {
   const [name, setName] = React.useState();
@@ -13,6 +14,7 @@ function App() {
   const [toggle, setToggle] = React.useState("On");
   const [isVisible, setIsVisible] = React.useState(true);
   const [formInput, setFormInput] = React.useState();
+  const [items, setItems] = React.useState([]);
 
   function handleName(event) {
     event.preventDefault();
@@ -55,6 +57,12 @@ function App() {
     setFormInput(event.target.value);
   }
 
+  function renderItem(event) {
+    event.preventDefault();
+    setItems([...items, event.target[0].value]);
+    event.target[0].value = "";
+  }
+
   return (
     <>
       <h1>Beginner Exercises</h1>
@@ -87,6 +95,11 @@ function App() {
       <FormInput
         handleFormInput={handleFormInput}
         formInput={formInput}
+      />
+
+      <ListRendering
+        renderItem={renderItem}
+        items={items}
       />
     </>
   )
