@@ -23,3 +23,18 @@
 .profile h3, p {
   margin: 0;
 }
+
+.counterApp {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.counterApp p {
+  padding: 2px 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  width: 24px;
+  text-align: center;
+}

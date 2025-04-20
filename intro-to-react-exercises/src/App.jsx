@@ -1,10 +1,12 @@
 import React from 'react';
 import { GreetingComponent } from './components/GreetingComponent';
 import { ProfileComponent } from './components/ProfileComponent';
+import { CounterApp } from './components/CounterApp';
 
 function App() {
   const [name, setName] = React.useState();
   const [user, setUser] = React.useState();
+  const [count, setCount] = React.useState(0);
 
   function handleName(event) {
     event.preventDefault();
@@ -25,6 +27,14 @@ function App() {
       });
   }
 
+  function handleCounter(action) {
+    if (action === "increment") {
+      setCount(prev => prev + 1);
+    } else {
+      setCount(prev => prev - 1);
+    }
+  }
+
   return (
     <>
       <h1>Beginner Exercises</h1>
@@ -37,6 +47,11 @@ function App() {
         <ProfileComponent
           user={user}
           generateUser={generateUser}
+        />
+
+        <CounterApp
+          handleCounter={handleCounter}
+          count={count}
         />
     </>
   )
