@@ -2,11 +2,13 @@ import React from 'react';
 import { GreetingComponent } from './components/GreetingComponent';
 import { ProfileComponent } from './components/ProfileComponent';
 import { CounterApp } from './components/CounterApp';
+import { ToggleButton } from './components/ToggleButton';
 
 function App() {
   const [name, setName] = React.useState();
   const [user, setUser] = React.useState();
   const [count, setCount] = React.useState(0);
+  const [toggle, setToggle] = React.useState("On");
 
   function handleName(event) {
     event.preventDefault();
@@ -35,6 +37,12 @@ function App() {
     }
   }
 
+  function handleToggle(event) {
+    setToggle(toggle == "On" ? "Off" : "On");
+    // inverse since toggle doesn't update until after render
+    event.target.style.backgroundColor = toggle != "On" ? "#00ff00" : "#ff0000";
+  }
+
   return (
     <>
       <h1>Beginner Exercises</h1>
@@ -52,6 +60,11 @@ function App() {
         <CounterApp
           handleCounter={handleCounter}
           count={count}
+        />
+        
+        <ToggleButton
+          handleToggle={handleToggle}
+          toggle={toggle}
         />
     </>
   )
