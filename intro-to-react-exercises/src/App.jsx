@@ -1,5 +1,7 @@
 import React from 'react';
 import { GreetingComponent } from './components/GreetingComponent';
+import { Profile } from './components/Profile';
+import { ProfileComponent } from './components/ProfileComponent';
 
 function App() {
   const [name, setName] = React.useState();
@@ -15,7 +17,12 @@ function App() {
     fetch('https://randomuser.me/api')
       .then(res => { return res.json(); })
       .then((json) => {
-        console.log(json.results[0]);
+        const user = json.results[0];
+        setUser({
+          name: `${user.name.first} ${user.name.last}`,
+          image: user.picture.large,
+          description: `${user.name.title} ${user.name.first} ${user.name.last} is from ${user.location.city}, ${user.location.state} in ${user.location.country}. ${user.name.first} was born on ${user.dob.date} and is ${user.dob.age} years old.`
+        });
       });
   }
 
@@ -28,17 +35,10 @@ function App() {
           name={name}
         />
 
-        <div className='profileContainer'>
-          <h2>Static Profile Card</h2>
-          <div className='profile'>
-            <img src="" alt="" />
-            <h3>User Name</h3>
-            <p>some description</p>
-          </div>
-          <button onClick={generateUser}>Generate User</button>
-        </div>
-
-
+        <ProfileComponent
+          user={user}
+          generateUser={generateUser}
+        />
     </>
   )
 }
