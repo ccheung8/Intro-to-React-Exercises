@@ -6,8 +6,8 @@ export function ProfileComponent({ user, generateUser }) {
       <h2>Static Profile Card</h2>
       <Profile
         user={user}
+        generateUser={generateUser}
       />
-      <button onClick={generateUser}>Generate User</button>
     </div>
   )
 }

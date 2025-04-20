@@ -1,6 +1,5 @@
 import React from 'react';
 import { GreetingComponent } from './components/GreetingComponent';
-import { Profile } from './components/Profile';
 import { ProfileComponent } from './components/ProfileComponent';
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
         setUser({
           name: `${user.name.first} ${user.name.last}`,
           image: user.picture.large,
-          description: `${user.name.title} ${user.name.first} ${user.name.last} is from ${user.location.city}, ${user.location.state} in ${user.location.country}. ${user.name.first} was born on ${user.dob.date} and is ${user.dob.age} years old.`
+          description: `${user.name.title} ${user.name.first} ${user.name.last} is from ${user.location.city}, ${user.location.state} in the ${user.location.country}. ${user.name.first} was born on ${user.dob.date} and is ${user.dob.age} years old.`
         });
       });
   }
