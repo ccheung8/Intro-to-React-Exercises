@@ -4,6 +4,7 @@ import { ProfileComponent } from './components/ProfileComponent';
 import { CounterApp } from './components/CounterApp';
 import { ToggleButton } from './components/ToggleButton';
 import { TextVisibility } from './components/TextVisibility';
+import { FormInput } from './components/formInput';
 
 function App() {
   const [name, setName] = React.useState();
@@ -11,6 +12,7 @@ function App() {
   const [count, setCount] = React.useState(0);
   const [toggle, setToggle] = React.useState("On");
   const [isVisible, setIsVisible] = React.useState(true);
+  const [formInput, setFormInput] = React.useState();
 
   function handleName(event) {
     event.preventDefault();
@@ -49,34 +51,43 @@ function App() {
     setIsVisible(isVisible == true ? false : true);
   }
 
+  function handleFormInput(event) {
+    setFormInput(event.target.value);
+  }
+
   return (
     <>
       <h1>Beginner Exercises</h1>
 
-        <GreetingComponent 
-          handleName={handleName}
-          name={name}
-        />
+      <GreetingComponent 
+        handleName={handleName}
+        name={name}
+      />
 
-        <ProfileComponent
-          user={user}
-          generateUser={generateUser}
-        />
+      <ProfileComponent
+        user={user}
+        generateUser={generateUser}
+      />
 
-        <CounterApp
-          handleCounter={handleCounter}
-          count={count}
-        />
-        
-        <ToggleButton
-          handleToggle={handleToggle}
-          toggle={toggle}
-        />
+      <CounterApp
+        handleCounter={handleCounter}
+        count={count}
+      />
+      
+      <ToggleButton
+        handleToggle={handleToggle}
+        toggle={toggle}
+      />
 
-        <TextVisibility
-          handleVisibility={handleVisibility}
-          isVisible={isVisible}
-        />
+      <TextVisibility
+        handleVisibility={handleVisibility}
+        isVisible={isVisible}
+      />
+
+      <FormInput
+        handleFormInput={handleFormInput}
+        formInput={formInput}
+      />
     </>
   )
 }
